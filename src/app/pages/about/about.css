@@ -1,0 +1,14 @@
+.page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}

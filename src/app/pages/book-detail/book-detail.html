@@ -1,0 +1,27 @@
+<div class="page">
+  @if (book) {
+    <h1>{{ book.title }}</h1>
+
+    <p>
+      <strong>Автор:</strong> {{ book.author }}
+    </p>
+
+    <p>
+      <strong>Кількість сторінок:</strong> {{ book.pages }}
+    </p>
+
+    <a routerLink="/books">
+      ← До списку книг
+    </a>
+  } @else {
+    <h1>Книгу не знайдено</h1>
+
+    <p>
+      Книги з таким ID не існує.
+    </p>
+
+    <a routerLink="/books">
+      ← До списку книг
+    </a>
+  }
+</div>

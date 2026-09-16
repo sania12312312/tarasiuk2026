@@ -1,0 +1,38 @@
+.page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #1e293b;
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 19px;
+  color: #475569;
+  margin: 18px 0;
+}
+
+a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+a:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
