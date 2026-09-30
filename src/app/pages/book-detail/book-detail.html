@@ -1,0 +1,19 @@
+@if (book) {
+  <article class="detail">
+    <h2>{{ book.title }}</h2>
+
+    <p><strong>Автор:</strong> {{ book.author }}</p>
+
+    <p><strong>Опис:</strong> {{ book.description }}</p>
+
+    <a routerLink="/books">← Повернутися до списку книг</a>
+  </article>
+} @else {
+  <article class="detail">
+    <h2>Книгу не знайдено</h2>
+
+    <p>Книги з таким ідентифікатором не існує.</p>
+
+    <a routerLink="/books">← Повернутися до списку книг</a>
+  </article>
+}
