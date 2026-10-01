@@ -1,0 +1,102 @@
+<h1>Додавання книги</h1>
+
+<form #itemForm="ngForm" (ngSubmit)="addItem(itemForm)">
+
+  <div>
+    <label for="title">Назва книги:</label>
+    <input
+      id="title"
+      type="text"
+      name="title"
+      [(ngModel)]="title"
+      #titleRef="ngModel"
+      required
+      minlength="2"
+      maxlength="50"
+    >
+
+    @if (titleRef.invalid && (titleRef.touched || submitted)) {
+      <div>
+        @if (titleRef.errors?.['required']) {
+          <p>Назва книги обов'язкова</p>
+        }
+        @if (titleRef.errors?.['minlength']) {
+          <p>Назва повинна містити мінімум 2 символи</p>
+        }
+        @if (titleRef.errors?.['maxlength']) {
+          <p>Назва повинна містити максимум 50 символів</p>
+        }
+      </div>
+    }
+  </div>
+
+  <div>
+    <label for="author">Автор:</label>
+    <input
+      id="author"
+      type="text"
+      name="author"
+      [(ngModel)]="author"
+      #authorRef="ngModel"
+      required
+      minlength="3"
+      maxlength="50"
+    >
+
+    @if (authorRef.invalid && (authorRef.touched || submitted)) {
+      <div>
+        @if (authorRef.errors?.['required']) {
+          <p>Вкажіть автора</p>
+        }
+        @if (authorRef.errors?.['minlength']) {
+          <p>Ім'я автора повинно містити мінімум 3 символи</p>
+        }
+        @if (authorRef.errors?.['maxlength']) {
+          <p>Ім'я автора повинно містити максимум 50 символів</p>
+        }
+      </div>
+    }
+  </div>
+
+  <div>
+    <label for="description">Опис книги:</label>
+    <textarea
+      id="description"
+      name="description"
+      [(ngModel)]="description"
+      #descriptionRef="ngModel"
+      required
+      minlength="10"
+      maxlength="200"
+    ></textarea>
+
+    @if (descriptionRef.invalid && (descriptionRef.touched || submitted)) {
+      <div>
+        @if (descriptionRef.errors?.['required']) {
+          <p>Опис книги обов'язковий</p>
+        }
+        @if (descriptionRef.errors?.['minlength']) {
+          <p>Опис повинен містити мінімум 10 символів</p>
+        }
+        @if (descriptionRef.errors?.['maxlength']) {
+          <p>Опис повинен містити максимум 200 символів</p>
+        }
+      </div>
+    }
+  </div>
+
+  <button type="submit">Додати</button>
+
+</form>
+
+@if (books.length > 0) {
+  <h2>Додані книги</h2>
+
+  @for (book of books; track $index) {
+    <div>
+      <h3>{{ book.title }}</h3>
+      <p><strong>Автор:</strong> {{ book.author }}</p>
+      <p><strong>Опис:</strong> {{ book.description }}</p>
+    </div>
+  }
+}
