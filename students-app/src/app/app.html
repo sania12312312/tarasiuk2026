@@ -1,0 +1,56 @@
+<div class="container">
+
+  <h1>Студенти групи</h1>
+
+  <div class="form">
+    <h2>Додати студента</h2>
+
+    <input
+      type="text"
+      placeholder="Ім'я"
+      [(ngModel)]="name"
+    >
+
+    <input
+      type="number"
+      placeholder="Вік"
+      [(ngModel)]="age"
+    >
+
+    <input
+      type="number"
+      placeholder="Середня оцінка"
+      [(ngModel)]="grade"
+    >
+
+    <button (click)="addStudent()">
+      Додати студента
+    </button>
+  </div>
+
+  <div class="students">
+
+    @for (student of students(); track student.id) {
+
+      <div class="student">
+
+        <h2>{{ student.name }}</h2>
+
+        <p>Вік: {{ student.age }}</p>
+
+        <p>Середня оцінка: {{ student.grade }}</p>
+
+        <button
+          class="delete-button"
+          (click)="removeStudent(student.id)"
+        >
+          Видалити
+        </button>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>
