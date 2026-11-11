@@ -1,0 +1,77 @@
+<div class="container">
+
+  <h1>🛒 Каталог товарів</h1>
+
+  <h2>Всього товарів: {{ products.length }}</h2>
+
+  <div class="form">
+
+    <h2>Додати товар</h2>
+
+    <label>Назва:</label>
+    <input
+      type="text"
+      [(ngModel)]="newName"
+      placeholder="Введіть назву"
+    >
+
+    <label>Ціна:</label>
+    <input
+      type="number"
+      [(ngModel)]="newPrice"
+      placeholder="Введіть ціну"
+    >
+
+    <label>Кількість:</label>
+    <input
+      type="number"
+      [(ngModel)]="newQuantity"
+      placeholder="Введіть кількість"
+    >
+
+    <button
+      (click)="addProduct()"
+      [disabled]="!newName.trim()"
+    >
+      Додати товар
+    </button>
+
+  </div>
+
+
+  <h2>Список товарів</h2>
+
+  <div
+    *ngFor="let product of products; let i = index"
+    class="product"
+    [ngClass]="product.quantity > 0 ? 'available' : 'not-available'"
+  >
+
+    <h3>{{ product.name }}</h3>
+
+    <p>
+      Ціна: {{ product.price }} грн
+    </p>
+
+    <p>
+      Кількість: {{ product.quantity }}
+    </p>
+
+    <p *ngIf="product.quantity > 0">
+      ✅ Є в наявності
+    </p>
+
+    <p *ngIf="product.quantity === 0">
+      ❌ Немає в наявності
+    </p>
+
+    <button
+      class="delete"
+      (click)="deleteProduct(i)"
+    >
+      Видалити
+    </button>
+
+  </div>
+
+</div>
